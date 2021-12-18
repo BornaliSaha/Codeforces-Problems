@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ 
+void CmP(ll x1,ll x2)
+{
+    if(x1==x2)
+        cout<<"="<<endl;
+    else if(x1>x2)
+        cout<<">"<<endl;
+    else cout<<"<"<<endl;
+}
+void saha()
+{
+    ll x1,x2,p1,p2;
+    cin>>x1>>p1>>x2>>p2;
+    if(p1>p2)
+    {
+        p1-=p2;
+        int ck=1;
+        while(p1)
+        {
+            if(x1>x2)
+            {
+                cout<<">"<<endl;
+                ck=0;
+                break;
+            }
+            else
+                x1*=10;
+            p1--;
+        }
+        if(ck)
+            CmP(x1,x2);
+    }
+    else if(p1<p2)
+    {
+        p2-=p1;
+        int ck=1;
+        while(p2)
+        {
+            if(x2>x1)
+            {
+                cout<<"<"<<endl;
+                ck=0;
+                break;
+            }
+            else x2*=10;
+            p2--;
+        }
+        if(ck)
+            CmP(x1,x2);
+    }
+    else
+        CmP(x1,x2);
+ 
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+        saha();
+}
